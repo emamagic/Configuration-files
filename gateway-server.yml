@@ -6,12 +6,12 @@ spring:
   cloud:
     gateway:
       routes:
-        -id: auth-route
-        uri: lb://auth-service
-        predicates:
-          -Path=/auth/**
-        filters:
-          -AddResponseHeader=X-Powered-By, Emamagic
+        - id: auth-route
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - AddResponseHeader=X-Powered-By, Emamagic
 management:
   endpoints:
     web:
@@ -22,3 +22,4 @@ management:
       show-details: always
     gateway:
       enabled: true
+
