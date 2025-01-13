@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: production
   security:
     oauth2:
       resourceserver:
