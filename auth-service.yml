@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: production
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://${keycloak.domain}/realms/${keycloak.realm}
+
+server:
+  port: 7090
+  servlet:
+    context-path: /auth
+
+jwt:
+  auth:
+    converter:
+      resource-id: authenticationClientId
+
+keycloak:
+  realm: recommendation-music
+  domain: keycloak.emamagic.com
+  adminClientId: admin-cli
+  adminClientSercret: my-sercret
+  client: authenticationClientId
+  urls:
+    auth: https://${keycloak.domain}
