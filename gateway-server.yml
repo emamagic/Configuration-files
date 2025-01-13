@@ -1,0 +1,24 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+        -id: auth-route
+        uri: lb://auth-service
+        predicates:
+          -Path=/auth/**
+        filters:
+          -AddResponseHeader=X-Powered-By, Emamagic
+management:
+  endpoints:
+    web:
+      exposure:
+        inclued: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
