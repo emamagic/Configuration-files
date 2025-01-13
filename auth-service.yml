@@ -10,6 +10,11 @@ server:
   servlet:
     context-path: /auth
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
 jwt:
   auth:
     converter:
